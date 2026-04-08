@@ -21,11 +21,11 @@ jobs:
         
     - name: Instalar dependencias
       run: |
+        cd orders_app/orders_app
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
     - name: Ejecutar integration test with fake
       run: |
-        export PYTHONPATH=$GITHUB_WORKSPACE
-        pytest
-        test_integration_with_fake.py -v
+        cd orders_app/orders_app
+        pytest test_integration_with_fake.py -v
